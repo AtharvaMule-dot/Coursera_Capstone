@@ -1,0 +1,25 @@
+
+II. Description of the data:
+The main data used for this project will be from two sources:
+
+The average price by neighborhoods in New York city. (CityRealty)
+The venues in each neighborhood. (FourSquare API)
+Other supporting data:
+
+Coordinates (Geocoder Python)
+GeoJson (http://data.beta.nyc)
+*Note: This project will only consider the average price of 2-bedrooms condo, which is a common type of real estate among normal families.
+
+1. Data collection process:
+The average price will be scrapped from the CityRealty website.
+For each neighborhood, call Geocoder Python to get its coordinate.
+For each neighborhood's coordinate, call FourSquare API to get the surrounding venues.
+Count the occurrences of each venue type and attach that information to each neighborhood.
+The output of the data collecting process will be a 2 dimensions dataframe:
+
+Each row represents a neighborhood.
+Each column will be the count of one type of venue in that neighborhood.
+The last column will be the average 2-bedroom condo price of that neighborhood.
+2. Using data to solve the question:
+First, correlation between price and surrounding venues will be checked.
+Second, if correlated, machine learning techniques (PCA, Regression, PCR) will be used to analyze the data. The output will be a list of venues types that effect the most on price, along with their weight on the result.
